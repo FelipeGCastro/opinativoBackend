@@ -8,7 +8,6 @@ class LinkSchema extends Schema {
     this.create('links', (table) => {
       table.increments()
       table.text('link').notNullable()
-      table.text('description').notNullable()
       table
         .integer('user_id')
         .unsigned()
