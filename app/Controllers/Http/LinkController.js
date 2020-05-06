@@ -19,7 +19,7 @@ class LinkController {
         }
       }
     })
-    const links = await query.with('topic').fetch()
+    const links = await query.with('topic').with('source').fetch()
     return links
   }
 
@@ -31,7 +31,7 @@ class LinkController {
 
   async show ({ params, request, response, view }) {
     const link = await Link.findOrFail(params.id)
-    await link.load('topic')
+    await link.loadMany(['topic', 'source'])
     return link
   }
 
