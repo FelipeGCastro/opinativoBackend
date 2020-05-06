@@ -13,7 +13,7 @@ class Link extends Model {
   }
 
   source () {
-    return this.belongsTo('App/Models/Topic')
+    return this.belongsTo('App/Models/Source')
   }
 }
 module.exports = Link
