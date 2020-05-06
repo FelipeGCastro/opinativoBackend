@@ -2,7 +2,6 @@
 
 const Route = use('Route')
 
-Route.post('users', 'UserController.store')
 Route.post('sessions', 'SessionController.store')
 
 // sourcer can have param ?source=:source_id
@@ -11,6 +10,7 @@ Route.get('sources', 'SourceController.index')
 Route.get('links/:id', 'LinkController.show')
 
 Route.group(() => {
+  Route.post('users', 'UserController.store')
   Route.resource('sources', 'SourceController').except(['index']).apiOnly()
   Route.resource('topics', 'TopicController').apiOnly()
   Route.resource('links', 'LinkController').except(['index', 'show']).apiOnly()
