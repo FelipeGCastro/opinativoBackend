@@ -24,7 +24,7 @@ class LinkController {
   }
 
   async store ({ request, response, auth }) {
-    const data = request.only(['link', 'source_id', 'topic_id'])
+    const data = request.only(['link', 'source_id', 'topic_id', 'description'])
     const link = await Link.create({ ...data, user_id: auth.user.id })
     return link
   }
@@ -36,7 +36,7 @@ class LinkController {
   }
 
   async update ({ params, request, response }) {
-    const data = request.only(['link', 'source_id', 'topic_id'])
+    const data = request.only(['link', 'source_id', 'topic_id', 'description'])
     const { id } = params
     const link = await Link.findOrFail(id)
     link.merge(data)
