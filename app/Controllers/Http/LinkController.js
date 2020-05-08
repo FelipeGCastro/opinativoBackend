@@ -19,7 +19,7 @@ class LinkController {
         }
       }
     })
-    const links = await query.with('topic').with('source').orderBy('created_at', 'desc').fetch()
+    const links = await query.orderBy('created_at', 'desc').with('topic').with('source').fetch()
     return links
   }
 
