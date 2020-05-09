@@ -7,7 +7,7 @@ Route.post('sessions', 'SessionController.store')
 // sourcer can have param ?source=:source_id
 Route.get('links', 'LinkController.index')
 Route.get('sources', 'SourceController.index')
-Route.get('topics', 'SourceController.index')
+Route.get('topics', 'TopicController.index')
 Route.get('links/:id', 'LinkController.show')
 
 Route.group(() => {
