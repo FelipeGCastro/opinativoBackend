@@ -12,6 +12,8 @@ Route.get('links/:id', 'LinkController.show')
 
 Route.group(() => {
   Route.post('users', 'UserController.store')
+  Route.post('twitter', 'TwitterController.create')
+  Route.get('twitter', 'TwitterController.index')
   Route.resource('sources', 'SourceController').except(['index']).apiOnly()
   Route.resource('topics', 'TopicController').except(['index']).apiOnly()
   Route.resource('links', 'LinkController').except(['index', 'show']).apiOnly()
