@@ -7,7 +7,7 @@ class TopicController {
   }
 
   async store ({ request, response, auth }) {
-    const data = request.only(['title', 'collection', 'description'])
+    const data = request.only(['title', 'collection', 'description', 'cover'])
     const topic = await Topic.create({ ...data, user_id: auth.user.id })
     return topic
   }
@@ -18,7 +18,7 @@ class TopicController {
   }
 
   async update ({ params, request, response }) {
-    const data = request.only(['title', 'collection', 'description'])
+    const data = request.only(['title', 'collection', 'description', 'cover'])
     const { id } = params
     const topic = await Topic.findOrFail(id)
     topic.merge(data)
